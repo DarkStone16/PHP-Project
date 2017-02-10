@@ -1,0 +1,28 @@
+.logo{
+    margin-top: 30px;
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+}
+
+li{
+    display: inline;
+    padding-right: 35px;
+}
+
+nav{
+    display: inline-block;
+    float: right;
+    margin-top: 40px;
+    margin-right: 50px;
+    width: 370px;
+}
+
+cite{
+   font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 90px;
+    margin-left: 90px;
+    font-family: 'Emblema One', cursive;
+}
