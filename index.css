@@ -1,3 +1,16 @@
+.first{  
+    background-image: url(img/prairie-679016_1920.jpg);
+    background-size: cover;
+    height: 700px;
+}
+
+.header{
+    background: ghostwhite;
+    height: 700px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
 .logo{
     margin-top: 30px;
     margin-left: 20px;
@@ -15,7 +28,8 @@ nav{
     float: right;
     margin-top: 40px;
     margin-right: 50px;
-    width: 370px;
+    width: 380px;
+    border-radius: 10px;
 }
 
 cite{
@@ -24,5 +38,12 @@ cite{
     text-align: center;
     margin-top: 90px;
     margin-left: 90px;
+    font-family: 'Emblema One', cursive;
+}
+
+.date{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 50px;
     font-family: 'Emblema One', cursive;
 }

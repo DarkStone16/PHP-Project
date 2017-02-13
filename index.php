@@ -26,28 +26,38 @@
 
             <div class="col-lg-2"></div>
 
+            <p class="date">
+                <?php echo date('d/m/Y h:i:s'); ?>
+            </p>
+
             <div class="col-lg-8">
 
-                <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
+                <div class="header">
 
-                <cite>
-                    Le site pour uploader, <br> et partager !
-                </cite>
+                    <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
-                <nav>
+                    <cite>
+                        Le site pour uploader, <br> et partager !
+                    </cite>
 
-                    <ul>
-                        <li><a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                        <li><a href="#"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                        <li><a href="#"><img src="img/Icon_Connexion.png" alt="Connexion" width="40" height="40"></a></li>
-                        <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
-                    </ul>
+                    <nav>
 
-                </nav>
+                        <ul>
+                            <li><a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                            <li><a href="#"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                            <li><a href="#"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                            <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
 
             </div>
-            
-            <div class="col-lg-2"></div>
 
         </div>
 
