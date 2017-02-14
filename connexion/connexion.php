@@ -2,6 +2,31 @@
 <html lang="en">
 
     <head>
+
+        <?php
+        require 'connect.php';
+        // Traiter le post
+        if (!empty($_POST) ) {
+
+            $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
+            
+            $stmt->execute([
+                ':email' => $_POST['email'],
+                ':password' => $_POST['password']
+            ]);
+            
+            $users = $stmt->fetchAll();
+            
+            if (count($users) > 0) {
+                
+                $_SESSION['connected'] = true;
+                $_SESSION['id'] = $users[0]['id'];
+                header('Location:galerie.php');
+            }
+        }
+        ?>
+
+
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,21 +86,18 @@
                             CONNEXION <br>
 
                         </p>
-                        
-                        <form action="">
 
-                            <input type="email" name="mail" placeholder="Email" class="formul"><br><br>
-                            
-                            <input type="password" name="mot de passe" placeholder="Mot De Passe" class="formul"><br><br>
-                            
+                        <form method="post">
+
+                            <input type="email" name="email" placeholder="Email" class="formul"><br><br>
+
+                            <input type="password" name="password" placeholder="Mot De Passe" class="formul"><br><br>
+
                             <input type="submit" value="Se Connecter" class="connect">
-                            
+
                         </form>
-                        
-                        
 
-
-                    </div
+                    </div>
 
                 </div>
 
