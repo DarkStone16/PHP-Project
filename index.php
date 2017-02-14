@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
         <link href="https://fonts.googleapis.com/css?family=Emblema+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -43,7 +44,7 @@
                     <nav>
 
                         <ul>
-                            <li><a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                            <li><a href="#upload"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
                             <li><a href="#"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
                             <li><a href="#"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
                             <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
@@ -51,9 +52,32 @@
 
                     </nav>
 
-                </div>
+                    <div class="col-md-2"></div>
 
-                <div class="col-lg-2">
+                    <div class="lastpics">
+
+                        <p class="title1">
+                            NOS DERNIERES IMAGES
+                        </p>
+
+                    </div>
+
+                    <div id="upload">
+
+                        <p class="title1">
+                            UPLOAD
+                        </p>
+
+                        <form method="post" action="" enctype="multipart/form-data">
+                            <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br/>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" name="mon_fichier" id="mon_fichier" /><br />
+                            <label for="titre">Titre du fichier (max. 50 caractères) :</label><br/>
+                            <input type="text" name="titre" value="Titre du fichier" id="titre" /><br/> <br>
+                            <input type="submit" name="submit" value="Envoyer" />
+                        </form>
+
+                    </div>
 
                 </div>
 
