@@ -1,3 +1,13 @@
+# Etapes: 
+** 1. créer l'upload **
+** 2. faire la galerie **
+** 3. profil **
+** 4. inscription **
+
+
+
+
+
 # Projet_PHP_B1B_Jerome_Raphael_Nathan
 
 **Création d’un site d’hébergement d’images en ligne **
