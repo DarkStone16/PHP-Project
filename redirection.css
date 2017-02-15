@@ -1,5 +1,5 @@
 .first{  
-    background-image: url(../img/prairie-679016_1920.jpg);
+    background-image: url(img/prairie-679016_1920.jpg);
     background-size: cover;
     height: 742px;
 }
@@ -47,7 +47,7 @@ cite{
     font-family: 'Emblema One', cursive;
 }
 
-.connexion{
+.erreur{
     height: 250px;
     width: 800px;
     background-color: silver;

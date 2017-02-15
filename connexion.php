@@ -4,6 +4,7 @@
     <head>
 
         <?php
+        
         require 'connect.php';
         // Traiter le post
         if (!empty($_POST) ) {
@@ -60,7 +61,7 @@
 
                 <div class="header">
 
-                    <a href="#" class="logo"><img src="../img/LogoTest.png" alt="#" width="160"></a>
+                    <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
                     <cite>
                         Le site pour uploader, <br> et partager !
@@ -69,10 +70,10 @@
                     <nav>
 
                         <ul>
-                            <li><a href="#upload"><img src="../img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                            <li><a href="index.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                            <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                            <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                            <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
                         </ul>
 
                     </nav>
