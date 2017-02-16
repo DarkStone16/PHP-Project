@@ -3,38 +3,13 @@
 
     <head>
 
-        <?php
-        
-        require 'connect.php';
-        
-        if (!empty($_POST) ) {
-
-            $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
-            
-            $stmt->execute([
-                ':email' => $_POST['email'],
-                ':password' => $_POST['password']
-            ]);
-            
-            $users = $stmt->fetchAll();
-            
-            if (count($users) > 0) {
-                
-                $_SESSION['connected'] = true;
-                $_SESSION['id'] = $users[0]['id'];
-                header('Location:upload.php');
-            }
-        }
-        ?>
-
-
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href="connexion.css">
+        <link rel="stylesheet" href="inscription.css">
         <link href="https://fonts.googleapis.com/css?family=Emblema+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
@@ -73,7 +48,7 @@
                             <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
                             <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
                             <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                            <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
                         </ul>
 
                     </nav>
@@ -84,17 +59,24 @@
 
                         <p class="title1">
 
-                            CONNEXION <br>
+                            INSCRIPTION <br>
 
                         </p>
 
                         <form method="post">
 
+                            <input type="text" name="pseudo" placeholder="Nom d'Utilisateur" class="formul"><br><br>
+
                             <input type="email" name="email" placeholder="Email" class="formul"><br><br>
+
+                            <input type="text" name="nom" placeholder="Nom" class="formul"><br><br>
+
+                            <input type="text" name="prenom" placeholder="Prenom" class="formul"><br><br>
 
                             <input type="password" name="password" placeholder="Mot De Passe" class="formul"><br><br>
 
-                            <input type="submit" value="Se Connecter" class="connect">
+
+                            <input type="submit" value="S'inscrire" class="inscrire">
 
                         </form>
 

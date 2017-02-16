@@ -6,4 +6,3 @@ if (!$_SESSION['connected']){
  header('Location:redirection.php');
 }
 
-echo "Fuck";

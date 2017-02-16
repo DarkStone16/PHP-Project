@@ -95,3 +95,12 @@ form{
     width: 150px;
     color: darkblue;
 }
+
+.inscrit{
+    color: #8cf1ff;
+}
+
+.inscrit:hover{
+    color: darkblue;
+    text-decoration:none; 
+}

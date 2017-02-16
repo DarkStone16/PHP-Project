@@ -35,7 +35,7 @@
 
                 <div class="header">
 
-                    <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
+                    <a href="index.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
                     <cite>
                         Le site pour uploader, <br> et partager !
@@ -44,10 +44,10 @@
                     <nav>
 
                         <ul>
-                            <li><a href="#upload"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                            <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                            <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
                             <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="#"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                            <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
                         </ul>
 
                     </nav>
@@ -59,23 +59,6 @@
                         <p class="title1">
                             NOS DERNIERES IMAGES
                         </p>
-
-                    </div>
-
-                    <div id="upload">
-
-                        <p class="title1">
-                            UPLOAD
-                        </p>
-
-                        <form method="post" action="" enctype="multipart/form-data">
-                            <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br/>
-                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                            <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-                            <label for="titre">Titre du fichier (max. 50 caractères) :</label><br/>
-                            <input type="text" name="titre" value="Titre du fichier" id="titre" /><br/> <br>
-                            <input type="submit" name="submit" value="Envoyer" />
-                        </form>
 
                     </div>
 
