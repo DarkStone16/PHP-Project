@@ -2,32 +2,6 @@
 <html lang="en">
 
     <head>
-
-        <?php
-        
-        require 'connect.php';
-        
-        if (!empty($_POST) ) {
-
-            $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
-            
-            $stmt->execute([
-                ':email' => $_POST['email'],
-                ':password' => $_POST['password']
-            ]);
-            
-            $users = $stmt->fetchAll();
-            
-            if (count($users) > 0) {
-                
-                $_SESSION['connected'] = true;
-                $_SESSION['id'] = $users[0]['id'];
-                header('Location:upload.php');
-            }
-        }
-        ?>
-
-
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,6 +71,40 @@
                             <input type="submit" value="Se Connecter" class="connect">
 
                         </form>
+
+                        <div class="connect_erreur">
+
+                            <?php
+
+                            require 'connect.php';
+
+                            if (!empty($_POST) ) {
+
+                                $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
+
+                                $stmt->execute([
+                                    ':email' => $_POST['email'],
+                                    ':password' => $_POST['password']
+                                ]);
+
+                                $users = $stmt->fetchAll();
+
+                                if (count($users) > 0) {
+
+                                    $_SESSION['connected'] = true;
+                                    $_SESSION['id'] = $users[0]['id'];
+                                    header('Location:upload.php');
+                                }else{
+
+                                    echo '<br>';
+                                    echo 'Erreur: Email ou Mot de Passe incorrect.';
+                                }
+
+                            }
+
+                            ?>
+
+                        </div>
 
                     </div>
 

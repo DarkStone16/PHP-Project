@@ -32,7 +32,7 @@ nav{
 }
 
 cite{
-   font-size: 20px;
+    font-size: 20px;
     display: inline-block;
     text-align: center;
     margin-top: 90px;
@@ -45,15 +45,6 @@ cite{
     margin-top: 20px;
     margin-left: 50px;
     font-family: 'Emblema One', cursive;
-}
-
-.connexion{
-    height: 250px;
-    width: 800px;
-    background-color: silver;
-    margin-left: 100px;
-    margin-top: 120px;
-    border-radius: 5px;
 }
 
 .title1{
@@ -72,30 +63,15 @@ cite{
 }
 
 .formul{
-     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #8cf1ff;
-    background: transparent;
-    margin-bottom: 10px;
-    height: 45px;
     text-align: center;
+    color: #8cf1ff;
 }
 
-form{
-    text-align: center;
-}
-
-.connect{
+.inscrire{
     border-color: deepskyblue;
     background-color:  rgba(140,241,255,0.5);
     border-radius: 5px;
     height: 40px;
     width: 150px;
     color: darkblue;
-}
-
-.connect_erreur{
-    text-align: center;
 }
