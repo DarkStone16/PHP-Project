@@ -6,6 +6,8 @@ session_start();
 try{
     $bdd= new pdo('mysql:host=localhost;dbname=projet_php_b1b_urpics', 'root','',array (pdo::ATTR_ERRMODE => pdo:: ERRMODE_EXCEPTION));
 }
+
+
 catch (Exception $e)
 {
     die('erreur :' .$e-> getMessage());
@@ -14,29 +16,35 @@ catch (Exception $e)
 if (!empty($_POST['nom']) && !empty($_POST['email'])) {
     // On enregistre le post dans la session
     //$_SESSION = $_POST;
-    /*
+/*
+
+
     $_SESSION['nom'] = $_POST['nom'];
     $_SESSION['prenom'] = $_POST['prenom'];
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['password'] = $_POST['password'];
-    $_SESSION['annéeDeNaissance']= $_Post['aéeDeNaissancenn'];
+    $_SESSION['annéeDeNaissance']= $_POST['annéeDeNaissance'];
 */
-
     echo 'Le nom est : ' . htmlentities($_POST['nom']) . '<br>';
     echo 'Le prénom est : ' . htmlentities($_POST['prenom']) . '<br>';
     echo 'L\'email est : ' . htmlentities($_POST['email']) . '<br>';
     echo 'Le password est : ' . htmlentities($_POST['password']) . '<br>';
     echo 'la date de naissance est:'. date($_POST['aniv']) . '<br>';
+    $password = $_POST['password'];
+    $password= crypt($password,'$2aaaaaaa$');
 
-    $r=$bdd ->prepare('INSERT INTO `users` (`nom`, `prenom`, `email`, `password`) VALUE (:nom ,:prenom,:email,:password)');
-    $r->bindValue(':nom',$nom,PDO::PARAM_STR);
-    $r->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-    $r->bindValue(':email',$email,PDO::PARAM_STR);
-    $r->bindValue(':password',$password,PDO::PARAM_STR);
-    $r->execute();
-    $r->closeCursor();
+    $sth=$bdd ->prepare('INSERT INTO `users` (`nom`, `prenom`, `email`, `password`) VALUE (:nom ,:prenom,:email,:password)');
+    $sth->bindValue(':nom',$nom,PDO::PARAM_STR);
+    $sth->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+    $sth->bindValue(':email',$email,PDO::PARAM_STR);
+    $sth->bindValue(':password',$password,PDO::PARAM_STR);
+    $sth->execute();
+    $sth->closeCursor();
 
-} elseif (!empty($_POST)) {
+}
+
+
+elseif (!empty($_POST)) {
     echo 'erreur';}
 
 ?>
