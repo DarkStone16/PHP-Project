@@ -4,24 +4,25 @@
     <head>
 
         <?php
+
         require 'connect.php';
         // Traiter le post
         if (!empty($_POST) ) {
 
             $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
-            
+
             $stmt->execute([
                 ':email' => $_POST['email'],
                 ':password' => $_POST['password']
             ]);
-            
+
             $users = $stmt->fetchAll();
-            
+
             if (count($users) > 0) {
-                
+
                 $_SESSION['connected'] = true;
                 $_SESSION['id'] = $users[0]['id'];
-                header('Location:galerie.php');
+                header('Location:profil.php');
             }
         }
         ?>
@@ -33,7 +34,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel="stylesheet" href="connexion.css">
+        <link rel="stylesheet" href="redirection.css">
         <link href="https://fonts.googleapis.com/css?family=Emblema+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 
@@ -60,7 +61,7 @@
 
                 <div class="header">
 
-                    <a href="#" class="logo"><img src="../img/LogoTest.png" alt="#" width="160"></a>
+                    <a href="index.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
                     <cite>
                         Le site pour uploader, <br> et partager !
@@ -69,21 +70,21 @@
                     <nav>
 
                         <ul>
-                            <li><a href="#upload"><img src="../img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="#"><img src="../img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                            <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                            <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                            <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                            <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
                         </ul>
 
                     </nav>
 
                     <div class="col-md-2"></div>
 
-                    <div class="connexion">
+                    <div class="erreur">
 
                         <p class="title1">
 
-                            CONNEXION <br>
+                            Veuillez vous connectez ou vous <a href="inscription.php" class="inscrit">inscrire</a>. <br>
 
                         </p>
 
