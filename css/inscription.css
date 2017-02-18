@@ -36,7 +36,7 @@ nav{
 }
 
 .connexion{
-    height: 250px;
+    height: 490px;
     background-color: silver;
     margin-top: 50px;
     border-radius: 5px;
@@ -70,8 +70,8 @@ nav{
     }
 
     .connexion{
-        height: 400px;
-        margin-top: 100px;
+        height: 470px;
+        margin-top: 0px;
         border-radius: 5px;
     }
 
@@ -79,6 +79,14 @@ nav{
         text-align: center;
         font-family: 'Titillium Web', sans-serif;
         font-size: 25px;
+    }
+
+    .first{  
+        height: 830px;
+    }
+
+    .header{
+        height: 830px;
     }
 }
 
@@ -90,7 +98,7 @@ nav{
 }
 
 .formul{
-     box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     border: none;
