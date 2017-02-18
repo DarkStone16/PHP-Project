@@ -1,5 +1,5 @@
 .first{  
-    background-image: url(img/prairie-679016_1920.jpg);
+    background-image: url(../img/prairie-679016_1920.jpg);
     background-size: cover;
     height: 742px;
 }
@@ -48,11 +48,11 @@ cite{
 }
 
 .connexion{
-    height: 480px;
+    height: 250px;
     width: 800px;
     background-color: silver;
     margin-left: 100px;
-    margin-top: 70px;
+    margin-top: 120px;
     border-radius: 5px;
 }
 
@@ -87,11 +87,15 @@ form{
     text-align: center;
 }
 
-.inscrire{
+.connect{
     border-color: deepskyblue;
     background-color:  rgba(140,241,255,0.5);
     border-radius: 5px;
     height: 40px;
     width: 150px;
     color: darkblue;
+}
+
+.connect_erreur{
+    text-align: center;
 }

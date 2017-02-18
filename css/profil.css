@@ -1,5 +1,5 @@
 .first{  
-    background-image: url(img/prairie-679016_1920.jpg);
+    background-image: url(../img/prairie-679016_1920.jpg);
     background-size: cover;
     height: 742px;
 }
@@ -53,8 +53,8 @@ cite{
     font-size: 30px;
 }
 
-#galerie{
-    height: 450px;
+#upload{
+    height: 300px;
     width: 800px;
     background-color: silver;
     margin-left: 100px;
@@ -62,3 +62,16 @@ cite{
     border-radius: 5px;
 }
 
+.formul{
+    text-align: center;
+    color: #8cf1ff;
+}
+
+.inscrire{
+    border-color: deepskyblue;
+    background-color:  rgba(140,241,255,0.5);
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    color: darkblue;
+}

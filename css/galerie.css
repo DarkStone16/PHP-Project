@@ -1,5 +1,5 @@
 .first{  
-    background-image: url(img/prairie-679016_1920.jpg);
+    background-image: url(../img/prairie-679016_1920.jpg);
     background-size: cover;
     height: 742px;
 }
@@ -32,7 +32,7 @@ nav{
 }
 
 cite{
-   font-size: 20px;
+    font-size: 20px;
     display: inline-block;
     text-align: center;
     margin-top: 90px;
@@ -47,23 +47,14 @@ cite{
     font-family: 'Emblema One', cursive;
 }
 
-.lastpics{
-    height: 500px;
-    width: 800px;
-    background-color: silver;
-    margin-left: 100px;
-    margin-top: 50px;
-     border-radius: 5px;
-}
-
 .title1{
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
     font-size: 30px;
 }
 
-#upload{
-    height: 300px;
+#galerie{
+    height: 450px;
     width: 800px;
     background-color: silver;
     margin-left: 100px;

@@ -1,5 +1,5 @@
 .first{  
-    background-image: url(img/prairie-679016_1920.jpg);
+    background-image: url(../img/prairie-679016_1920.jpg);
     background-size: cover;
     height: 742px;
 }
@@ -45,6 +45,15 @@ cite{
     margin-top: 20px;
     margin-left: 50px;
     font-family: 'Emblema One', cursive;
+}
+
+.lastpics{
+    height: 500px;
+    width: 800px;
+    background-color: silver;
+    margin-left: 100px;
+    margin-top: 50px;
+     border-radius: 5px;
 }
 
 .title1{
