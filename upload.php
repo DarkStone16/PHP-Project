@@ -26,59 +26,72 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <title>UrPics</title>
-        
+
         <link rel="shortcut icon" href="./img/Logo_UrPics.png">
 
     </head>
 
     <body>
 
+        <div class="container-fluid">
 
-        <div class="row first">
+            <div class="row first">
 
-            <div class="col-lg-2"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
-            <p class="date">
-                <?php echo date('d/m/Y h:i:s'); ?>
-            </p>
+                <div class="col-lg-8 col-md-8 col-sm-8">
 
-            <div class="col-lg-8">
+                    <div class="header">
 
-                <div class="header">
+                        <div class="col-lg-2 col-md-2 col-sm-4">
 
-                    <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
+                            <a href="index_pro.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
-                    <cite>
-                        Le site pour uploader, <br> et partager !
-                    </cite>
+                        </div>
 
-                    <nav>
+                        <div class="col-lg-4 col-md-10 col-sm-6">
 
-                        <ul>
-                            <li><a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="profil.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="logout.php"><img src="img/Icon_Deconnexion.png" alt="Deconnexion" width="40" height="40"></a></li>
-                        </ul>
+                            <cite>
+                                Le site pour uploader, et partager !
+                            </cite>
 
-                    </nav>
+                        </div>
 
-                    <div class="col-md-2"></div>
+                        <div class="col-lg-6 col-md-10 col-sm-10">
 
-                    <div id="upload">
+                            <nav>
 
-                        <p class="title1">
-                            UPLOAD
-                        </p>
+                                <ul>
+                                    <li><a href="upload.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                                    <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                                    <li><a href="profil.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                                    <li><a href="logout.php"><img src="img/Icon_Deconnexion.png" alt="Deconnexion" width="40" height="40"></a></li>
+                                </ul>
 
-                        <form method="post" action="" enctype="multipart/form-data">
-                            <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br/>
-                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                            <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-                            <label for="titre">Titre du fichier (max. 50 caractères) :</label><br/>
-                            <input type="text" name="titre" value="Titre du fichier" id="titre" /><br/> <br>
-                            <input type="submit" name="submit" value="Envoyer" />
-                        </form>
+                            </nav>
+
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            <div class="upload">
+
+                                <p class="title1">
+                                    UPLOAD
+                                </p>
+
+                                <form method="post" action="" enctype="multipart/form-data">
+                                    <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br/>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                                    <input type="file" name="mon_fichier" id="mon_fichier" /><br />
+                                    <label for="titre">Titre du fichier (max. 50 caractères) :</label><br/>
+                                    <input type="text" name="titre" value="Titre du fichier" id="titre" /><br/> <br>
+                                    <input type="submit" name="submit" value="Envoyer" />
+                                </form>
+
+                            </div>
+
+                        </div>
 
                     </div>
 

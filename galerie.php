@@ -3,7 +3,7 @@
 session_start();
 
 if (!$_SESSION['connected']){
- header('Location:redirection.php');
+    header('Location:redirection.php');
 }
 
 ?>
@@ -27,52 +27,64 @@ if (!$_SESSION['connected']){
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <title>UrPics</title>
-        
+
         <link rel="shortcut icon" href="./img/Logo_UrPics.png">
 
     </head>
 
     <body>
 
+        <div class="container-fluid">
 
-        <div class="row first">
+            <div class="row first">
 
-            <div class="col-lg-2"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
-            <p class="date">
-                <?php echo date('d/m/Y h:i:s'); ?>
-            </p>
+                <div class="col-lg-8 col-md-8 col-sm-8">
 
-            <div class="col-lg-8">
+                    <div class="header">
 
-                <div class="header">
+                        <div class="col-lg-2 col-md-2 col-sm-4">
 
-                    <a href="#" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
+                            <a href="index_pro.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
-                    <cite>
-                        Le site pour uploader, <br> et partager !
-                    </cite>
+                        </div>
 
-                    <nav>
+                        <div class="col-lg-4 col-md-10 col-sm-6">
 
-                        <ul>
-                            <li><a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="profil.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="logout.php"><img src="img/Icon_Deconnexion.png" alt="Deconnexion" width="40" height="40"></a></li>
-                        </ul>
+                            <cite>
+                                Le site pour uploader, et partager !
+                            </cite>
 
-                    </nav>
+                        </div>
 
-                    <div class="col-md-2"></div>
+                        <div class="col-lg-6 col-md-10 col-sm-10">
 
-                    <div id="galerie">
+                            <nav>
 
-                        <p class="title1">
-                            GALERIE
-                        </p>
+                                <ul>
+                                    <li><a href="upload.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                                    <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                                    <li><a href="profil.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                                    <li><a href="logout.php"><img src="img/Icon_Deconnexion.png" alt="Deconnexion" width="40" height="40"></a></li>
+                                </ul>
 
-                        
+                            </nav>
+
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+
+                            <div class="galerie">
+
+                                <p class="title1">
+                                    GALERIE
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>

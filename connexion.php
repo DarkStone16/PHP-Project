@@ -17,94 +17,107 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <title>UrPics</title>
-        
+
         <link rel="shortcut icon" href="./img/Logo_UrPics.png">
 
     </head>
 
     <body>
 
+        <div class="container-fluid">
 
-        <div class="row first">
+            <div class="row first">
 
-            <div class="col-lg-2"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
-            <p class="date">
-                <?php echo date('d/m/Y h:i:s'); ?>
-            </p>
+                <div class="col-lg-8 col-md-8 col-sm-8">
 
-            <div class="col-lg-8">
+                    <div class="header">
 
-                <div class="header">
+                        <div class="col-lg-2 col-md-2 col-sm-4">
 
-                    <a href="index.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
+                            <a href="index.php" class="logo"><img src="img/LogoTest.png" alt="#" width="160"></a>
 
-                    <cite>
-                        Le site pour uploader, <br> et partager !
-                    </cite>
+                        </div>
 
-                    <nav>
+                        <div class="col-lg-4 col-md-10 col-sm-6">
 
-                        <ul>
-                            <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
-                        </ul>
+                            <cite>
+                                Le site pour uploader, et partager !
+                            </cite>
 
-                    </nav>
+                        </div>
 
-                    <div class="col-md-2"></div>
+                        <div class="col-lg-6 col-md-10 col-sm-10">
 
-                    <div class="connexion">
+                            <nav>
 
-                        <p class="title1">
+                                <ul>
+                                    <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
+                                    <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
+                                    <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
+                                    <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                                </ul>
 
-                            CONNEXION <br>
+                            </nav>
 
-                        </p>
+                        </div>
 
-                        <form method="post">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
 
-                            <input type="email" name="email" placeholder="Email" class="formul"><br><br>
+                            <div class="connexion">
 
-                            <input type="password" name="password" placeholder="Mot De Passe" class="formul"><br><br>
+                                <p class="title1">
 
-                            <input type="submit" value="Se Connecter" class="connect">
+                                    CONNEXION <br>
 
-                        </form>
+                                </p>
 
-                        <div class="connect_erreur">
+                                <form method="post">
 
-                            <?php
+                                    <input type="email" name="email" placeholder="Email" class="formul"><br><br>
 
-                            require 'connect.php';
+                                    <input type="password" name="password" placeholder="Mot De Passe" class="formul"><br><br>
 
-                            if (!empty($_POST) ) {
+                                    <input type="submit" value="Se Connecter" class="connect">
 
-                                $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
+                                </form>
 
-                                $stmt->execute([
-                                    ':email' => $_POST['email'],
-                                    ':password' => $_POST['password']
-                                ]);
+                                <div class="connect_erreur">
 
-                                $users = $stmt->fetchAll();
+                                    <?php
 
-                                if (count($users) > 0) {
+                                    require 'connect.php';
 
-                                    $_SESSION['connected'] = true;
-                                    $_SESSION['id'] = $users[0]['id'];
-                                    header('Location:upload.php');
-                                }else{
+                                    if (!empty($_POST) ) {
 
-                                    echo '<br>';
-                                    echo 'Erreur: Email ou Mot de Passe incorrect.';
-                                }
+                                        $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
 
-                            }
+                                        $stmt->execute([
+                                            ':email' => $_POST['email'],
+                                            ':password' => $_POST['password']
+                                        ]);
 
-                            ?>
+                                        $users = $stmt->fetchAll();
+
+                                        if (count($users) > 0) {
+
+                                            $_SESSION['connected'] = true;
+                                            $_SESSION['id'] = $users[0]['id'];
+                                            header('Location:upload.php');
+                                        }else{
+
+                                            echo '<br>';
+                                            echo 'Erreur: Email ou Mot de Passe incorrect.';
+                                        }
+
+                                    }
+
+                                    ?>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
