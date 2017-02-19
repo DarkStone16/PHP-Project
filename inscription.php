@@ -15,17 +15,14 @@ catch (Exception $e)
 }
 
 if (!empty($_POST['nom']) && !empty($_POST['email'])) {
-    // On enregistre le post dans la session
-    //$_SESSION = $_POST;
-/*
+
 
 
     $_SESSION['nom'] = $_POST['nom'];
     $_SESSION['prenom'] = $_POST['prenom'];
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['password'] = $_POST['password'];
-    $_SESSION['annéeDeNaissance']= $_POST['annéeDeNaissance'];
-*/
+
     echo 'Le nom est : ' . htmlentities($_POST['nom']) . '<br>';
     echo 'Le prénom est : ' . htmlentities($_POST['prenom']) . '<br>';
     echo 'L\'email est : ' . htmlentities($_POST['email']) . '<br>';
@@ -35,8 +32,6 @@ if (!empty($_POST['nom']) && !empty($_POST['email'])) {
     $password= crypt($password,'$2aaaaaaaa$');
 
     $sth=$bdd ->prepare('INSERT INTO `users` (`nom`, `prenom`, `email`, `password`) VALUE (:nom ,:prenom,:email,:password)');
-
-
 }
 ?>
 

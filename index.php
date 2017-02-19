@@ -10,8 +10,8 @@ try {
 } catch (Exception $e){
     echo $e->getMessage();
 }
-echo 'toto';
-$reponse= $dbh -> prepare('select * from image');
+
+$reponse= $dbh -> prepare('select * from image LIMIT 0,5');
 $reponse->execute();
 while ($donnees = $reponse -> fetch())
 {
