@@ -10,6 +10,8 @@ try {
 } catch (Exception $e){
     echo $e->getMessage();
 }
+$str="\x8F!!!";
+echo htmlentities($str);
 
 $reponse= $dbh -> prepare('select * from image LIMIT 0,5');
 $reponse->execute();
