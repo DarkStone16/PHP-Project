@@ -1,5 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+require 'connect.php';
+
+$stmt = $dbh->prepare('SELECT * FROM images ORDER BY id DESC LIMIT 4;');
+$stmt->execute();
+?>
+
+
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -44,10 +53,18 @@
                     <nav>
 
                         <ul>
-                            <li><a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
-                            <li><a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
-                            <li><a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a></li>
-                            <li><a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a></li>
+                            <li>
+                                <a href="upload.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a>
+                            </li>
+                            <li>
+                                <a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a>
+                            </li>
+                            <li>
+                                <a href="connexion.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a>
+                            </li>
+                            <li>
+                                <a href="inscription.php"><img src="img/Icon_Inscription.png" alt="Inscription" width="40" height="40"></a>
+                            </li>
                         </ul>
 
                     </nav>
@@ -60,7 +77,30 @@
                             NOS DERNIERES IMAGES
                         </p>
 
+                        <div class=image1>
+
+                        </div>
+
+
+                        <div class="bs-example" data-example-id="simple-thumbnails">
+                            <div class="row">
+                                <?php
+                    while ($result = $stmt->fetch()){
+
+                            $idphoto = $result['id'];
+                            $nom = $result['picture'];
+                        echo "<div class='col-md-3 col-xs-6'>
+                        <a href='#' class='thumbnail'> <img alt='100%x180' src='uploads/$nom' data-src='holder.js/100%x180' style='height: 180px; width: 100%; display: block;' data-holder-rendered='true'> </a>
+                        </div>";
+                    }
+                     ?>
+
+                            </div>
+                        </div>
+
+
                     </div>
+
 
                 </div>
 
@@ -70,4 +110,4 @@
 
     </body>
 
-</html>
+    </html>

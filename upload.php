@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
+    <?php
 
-// Connexion à la BDD
-require 'connect.php';
+    // Connexion à la BDD
+    require 'connect.php';
 
-// Bloque l'accès si la personne n'est pas connectée
-if (empty($_SESSION['connected'])) {
-    header('Location:redirection.php');
-}
+    // Bloque l'accès si la personne n'est pas connectée
+    if (empty($_SESSION['connected'])) {
+        header('Location:redirection.php');
+    }
 
-// à l'envoie du formulaire
-if (!empty($_POST)) {
 
-    // initialisation du nom de la photo
-    $pixName = '';
 
     // Upload de photo
     if (!empty($_FILES)) {
 
         $mime_valid = ['image/png', 'image/jpeg','image/gif'];
         $extension_valid = ['png', 'jpeg','jpg','gif'];
-
-               $extension = pathinfo($_FILES['picture']['name'])['extension'];
+        $extension = pathinfo($_FILES['picture']['name'])['extension'];
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime = finfo_file($finfo, $_FILES['picture']['tmp_name']);
 
@@ -32,19 +27,20 @@ if (!empty($_POST)) {
 
             // L'enregistrement du nom de la photo suite à l'upload
             $pixName = $_FILES['picture']['name'];
+            // Enregistrement du produit avec le nom de la photo si il y a eu un upload 
+            $stmt = $dbh->prepare('INSERT INTO images VALUES(NULL, :picture)');
+            $stmt->execute([
+                ':picture' => $pixName
+            ]);
         } else {
             echo 'Erreur de format';
         }
     }
 
-    // Enregistrement du produit avec le nom de la photo si il y a eu un upload 
-    $stmt = $dbh->prepare('INSERT INTO images VALUES(NULL, :picture)');
-    $stmt->execute([
-        ':picture' => $pixName
-    ]);
-}
 
-?>
+
+
+    ?>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,10 +85,10 @@ if (!empty($_POST)) {
 
                         <ul>
                             <li>
-                                <a href="#"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a>
+                                <a href="redirection.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a>
                             </li>
                             <li>
-                                <a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a>
+                                <a href="redirection.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a>
                             </li>
                             <li>
                                 <a href="profil.php"><img src="img/Icon_Connexion_Test.png" alt="Connexion" width="50" height="50"></a>
@@ -111,15 +107,11 @@ if (!empty($_POST)) {
                         <p class="title1">
                             UPLOAD
                         </p>
-                        <form action="http://localhost/Projet_PHP_B1B_Jerome_Raphael_Nathan/galerie.php" method="post" enctype="multipart/form-data">
+                        <form  method="post" enctype="multipart/form-data">
+
                             <label>
-                                  Nom :
-                                <input type="text" name="name">
-                            </label>
-                            <br>
-                            <label>
-                                  Photo :
-                                <input type="file" name="picture">
+                                Photo :
+                                <input type="file" name="picture" accept="image/*">
                             </label>
                             <br>
                             <button type="submit" >Envoyer vers la galerie</button>
