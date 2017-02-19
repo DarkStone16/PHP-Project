@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 // Initialiser la session
 session_start();
+
 try{
     $bdd= new pdo('mysql:host=localhost;dbname=projet_php_b1b_urpics', 'root','',array (pdo::ATTR_ERRMODE => pdo:: ERRMODE_EXCEPTION));
 }
@@ -31,23 +32,17 @@ if (!empty($_POST['nom']) && !empty($_POST['email'])) {
     echo 'Le password est : ' . htmlentities($_POST['password']) . '<br>';
     echo 'la date de naissance est:'. date($_POST['aniv']) . '<br>';
     $password = $_POST['password'];
-    $password= crypt($password,'$2aaaaaaa$');
+    $password= crypt($password,'$2aaaaaaaa$');
 
     $sth=$bdd ->prepare('INSERT INTO `users` (`nom`, `prenom`, `email`, `password`) VALUE (:nom ,:prenom,:email,:password)');
-    $sth->bindValue(':nom',$nom,PDO::PARAM_STR);
-    $sth->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-    $sth->bindValue(':email',$email,PDO::PARAM_STR);
-    $sth->bindValue(':password',$password,PDO::PARAM_STR);
-    $sth->execute();
-    $sth->closeCursor();
+
 
 }
-
-
-elseif (!empty($_POST)) {
-    echo 'erreur';}
-
 ?>
+
+
+
+
 <?php
 
 if (empty($_POST['jour']) && empty($_POST['mois']) && empty($_POST['annee'])){
