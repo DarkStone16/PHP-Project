@@ -14,7 +14,7 @@ try {
 
 $stmt = $dbh->prepare('SELECT * FROM users WHERE id = :id');
 $stmt->execute([
-    ':id' => $_SESSION['id']
+    ':id' => htmlentities($_SESSION['id'])
 ]);
 $users = $stmt->fetchAll();
 ?>
@@ -96,16 +96,60 @@ $users = $stmt->fetchAll();
 
                                     <?php
                                     foreach ($users as $user){
-                                        echo 'Nom d\'Utilisateur: <br> <td>'.$user['pseudo'].'</td><br><br>
-                                    Prénom: <br> <td>'.$user['prenom'].'</td><br><br>
-                                Nom: <br> <td>'.$user['nom'].'</td><br><br>
-                                Email: <br> <td>'.$user['email'].'</td><br>';
+                                        echo 'Nom d\'Utilisateur: <br> <td>'.htmlentities($user['pseudo']).'</td><br><br>
+                                    Prénom: <br> <td>'.htmlentities($user['prenom']).'</td><br><br>
+                                Nom: <br> <td>'.htmlentities($user['nom']).'</td><br><br>
+                                Email: <br> <td>'.htmlentities($user['email']).'</td><br>';
                                     }
                                     ?>
-                                    <br>
 
+                                    <br>
+                                    
                                 </p>
 
+                                    <?php
+
+                                    if(!empty($_POST)){
+                                        echo 'Nom changé: '.$_POST['prenom'].', <br> Email changé:  '.$_POST['email'].'';
+                                        $stmt = $dbh->prepare('UPDATE users SET prenom = :prenom, nom = :nom, email = :email WHERE id = :id');
+                                        $stmt->execute([
+                                            ':prenom' => $_POST['prenom'],
+                                            ':nom' => $_POST['nom'],
+                                            ':email' => $_POST['email'],
+                                            ':id' => $_SESSION['id']
+                                        ]);
+                                    }
+                                    $stmt = $dbh->prepare('SELECT * FROM users WHERE id = :id');
+                                    $stmt->execute([
+                                        ':id' => $_SESSION['id']
+                                    ]);
+                                    $user = $stmt->fetch();
+
+                                    ?>
+                                    
+                                
+
+                                <form action="" method="post">
+                                    <label>
+                                        Prénom :
+                                        <input type="text" name="prenom" class="formule" value="<?= $user['prenom'] ?>">
+                                    </label>
+                                    <br>
+                                    <label>
+                                        Nom :
+                                        <input type="text" name="nom" class="formule" value="<?= $user['nom'] ?>">
+                                    </label>
+                                    <br>
+                                    <label>
+                                        Email :
+                                        <input type="text" name="email" class="formule" value="<?= $user['email'] ?>">
+                                    </label>
+                                    <br>
+
+                                    <button type="submit" class="connect">Valider</button>
+                                    
+                                </form>
+               
                             </div>
 
                         </div>

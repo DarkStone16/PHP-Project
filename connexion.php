@@ -94,8 +94,8 @@
                                         $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
 
                                         $stmt->execute([
-                                            ':email' => $_POST['email'],
-                                            ':password' => $_POST['password']
+                                            ':email' => htmlentities($_POST['email']),
+                                            ':password' => htmlentities($_POST['password'])
                                         ]);
 
                                         $users = $stmt->fetchAll();
@@ -104,11 +104,13 @@
 
                                             $_SESSION['connected'] = true;
                                             $_SESSION['id'] = $users[0]['id'];
-                                            header('Location:upload.php');
+                                            header('Location:profil.php');
+                                            
                                         }else{
 
                                             echo '<br>';
                                             echo 'Erreur: Email ou Mot de Passe incorrect.';
+                                            
                                         }
 
                                     }

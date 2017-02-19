@@ -6,7 +6,7 @@
         <?php
 
         require 'connect.php';
-        // Traiter le post
+        
         if (!empty($_POST) ) {
 
             $stmt = $dbh->prepare('SELECT * FROM users WHERE email = :email AND password = :password');

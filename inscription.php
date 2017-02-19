@@ -66,6 +66,40 @@
 
                         <div class="col-lg-12 col-md-12 col-sm-12">
 
+                            <p class="champs">
+
+                                <br> 
+
+                                <?php
+                                
+                                include 'connect.php';
+                                $requete = $dbh->prepare('INSERT INTO users VALUES(NULL, :pseudo, :prenom, :nom, :email, :password)');
+
+                                if(!empty($_POST)){
+                                    
+                                    $users = $requete->fetchAll();
+
+                                    if(empty($_POST['pseudo']) OR empty($_POST['prenom']) OR empty($_POST['nom']) OR empty($_POST['email']) OR empty($_POST['password'])){
+                                        echo 'Veuillez remplir tous les champs !';
+                                    }else{
+                                        $requete->execute([
+                                            ':pseudo' => htmlentities($_POST['pseudo']),
+                                            ':prenom' => htmlentities($_POST['prenom']),
+                                            ':nom' => htmlentities($_POST['nom']),
+                                            ':email' => htmlentities($_POST['email']),
+                                            ':password' => htmlentities($_POST['password'])  
+                                        ]);
+                                        header('Location:connexion.php');
+                                    }
+
+                                }
+
+
+
+                                ?>
+
+                            </p>
+
                             <div class="connexion">
 
                                 <p class="title1">
@@ -87,7 +121,7 @@
                                     <input type="password" name="password" placeholder="Mot De Passe" class="formul"><br><br>
 
 
-                                    <input type="submit" value="S'inscrire" class="inscrire">
+                                    <input type="submit" value="S'inscrire" class="inscrire"><br><br>
 
                                 </form>
 

@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-   <?php
+    <?php
 
-    session_start();
+    require 'connect.php';
 
     if (!$_SESSION['connected']){
         header('Location:redirection.php');
     }
+
+    $stmt = $dbh->prepare('SELECT * FROM images ORDER BY id DESC LIMIT 5;');
+    $stmt->execute();
     ?>
 
     <head>
@@ -60,7 +63,7 @@
                         <div class="col-lg-6 col-md-10 col-sm-10">
 
                             <nav>
-                               
+
                                 <ul>
                                     <li><a href="upload.php"><img src="img/Icon_Upload_Test.png" alt="Upload" width="50" height="50"></a></li>
                                     <li><a href="galerie.php"><img src="img/Icon_Image_Test.png" alt="Galerie" width="40" height="40"></a></li>
@@ -79,6 +82,21 @@
                                 <p class="title1">
                                     NOS DERNIERES IMAGES
                                 </p>
+
+                                <div class="bs-example" data-example-id="simple-thumbnails">
+                                    <div class="row second">
+                                        <?php
+                                        while ($result = $stmt->fetch()){
+                                            $idphoto = $result['id'];
+                                            $nom = $result['picture'];
+                                            echo "<div class='col-md-4 col-xs-6'>
+                                            <a href='#' class='thumbnail'> <img alt='100%x180' src='./uploads/$nom' data-src='holder.js/100%x180' style='height: 170px;' data-holder-rendered='true'> </a>
+                                            </div>";
+                                        }
+                                        ?>
+
+                                    </div>
+                                </div>
 
                             </div>
 

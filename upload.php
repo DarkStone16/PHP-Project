@@ -2,11 +2,32 @@
 <html lang="en">
 
     <?php
-
-    session_start();
-
-    if (!$_SESSION['connected']){
+    // Connexion à la BDD
+    require 'connect.php';
+    // Bloque l'accès si la personne n'est pas connectée
+    if (empty($_SESSION['connected'])) {
         header('Location:redirection.php');
+    }
+    // Upload de photo
+    if (!empty($_FILES)) {
+        $mime_valid = ['image/png', 'image/jpeg','image/gif'];
+        $extension_valid = ['png', 'jpeg','jpg','gif'];
+        $extension = pathinfo($_FILES['picture']['name'])['extension'];
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $_FILES['picture']['tmp_name']);
+        // test le mime & l'extension avec pathinfo() -- On ne veut que des fichiers PNG
+        if(in_array($extension, $extension_valid) && in_array($mime, $mime_valid)){
+            move_uploaded_file($_FILES['picture']['tmp_name'], 'uploads/' . $_FILES['picture']['name']);
+            // L'enregistrement du nom de la photo suite à l'upload
+            $pixName = $_FILES['picture']['name'];
+            // Enregistrement du produit avec le nom de la photo si il y a eu un upload 
+            $stmt = $dbh->prepare('INSERT INTO images VALUES(NULL, :picture)');
+            $stmt->execute([
+                ':picture' => $pixName
+            ]);
+        } else {
+            echo 'Erreur de format';
+        }
     }
     ?>
 
@@ -80,13 +101,16 @@
                                     UPLOAD
                                 </p>
 
-                                <form method="post" action="" enctype="multipart/form-data">
-                                    <label for="mon_fichier">Fichier (tous formats | max. 1 Mo) :</label><br/>
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-                                    <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-                                    <label for="titre">Titre du fichier (max. 50 caractères) :</label><br/>
-                                    <input type="text" name="titre" value="Titre du fichier" id="titre" /><br/> <br>
-                                    <input type="submit" name="submit" value="Envoyer" />
+                                <form  method="post" enctype="multipart/form-data">
+
+                                    <label>
+                                        Photo :
+                                        <input type="file" name="picture" accept="image/*">
+                                    </label>
+                                    <br>
+                                    
+                                    <button type="submit" class="envoi">Upload</button>
+                                    
                                 </form>
 
                             </div>
