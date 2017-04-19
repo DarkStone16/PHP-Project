@@ -1,0 +1,123 @@
+.first{  
+    background-image: url(../img/prairie-679016_1920.jpg);
+    background-size: cover;
+    height: 759px;
+}
+
+.header{
+    background-color: rgba(248,248,255,0.8);   
+    height: 759px;
+    border-radius: 5px;
+}
+
+.logo{
+    margin-top: 30px;
+    display: inline-block;
+}
+
+cite{
+    font-size: 18px;
+    margin-top: 90px;
+    margin-left: 30px;
+    display: inline-block;
+    text-align: center;
+    float: right;
+    font-family: 'Emblema One', cursive;
+}
+
+li{
+    display: inline;
+    padding: 20px;
+}
+
+nav{
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.erreur{
+    height: 250px;
+    background-color: silver;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.title1{
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30px;
+}
+
+@media(max-width: 320px) { 
+    .logo{
+        margin-left: 30px;
+    }
+
+    cite{
+        font-size: 15px;
+        margin-top: 0px;
+        margin-left: 23px;
+    }
+
+    nav{
+        margin-top: 20px;
+        margin-right: 10px;
+        width: 245px;
+    }
+
+    li{
+        padding-right: 0px;
+    }
+
+    .erreur{
+        height: 350px;
+        margin-top: 0px;
+        border-radius: 5px;
+    }
+
+    .title1{
+        text-align: center;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 25px;
+    }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px){
+    .erreur{
+        margin-top: 30px;
+    }
+}
+
+.formul{
+     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #8cf1ff;
+    background: transparent;
+    margin-bottom: 10px;
+    height: 45px;
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+.connect{
+    border-color: deepskyblue;
+    background-color:  rgba(140,241,255,0.5);
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    color: darkblue;
+}
+
+.inscrit{
+    color: #8cf1ff;
+}
+
+.inscrit:hover{
+    color: darkblue;
+    text-decoration:none; 
+}
